@@ -85,6 +85,13 @@
   margin-bottom: 5px;
 }
 
+.MuiTimelineItem-root:nth-child(even) .timeline-achievements ul {
+  padding-left: 0;
+  padding-right: 20px;
+  text-align: right;
+  list-style-position: inside;
+}
+
 /* Timeline customization */
 .MuiTimelineDot-root {
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
