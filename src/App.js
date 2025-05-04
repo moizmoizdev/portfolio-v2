@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/layout/Header';
 import SideNav from './components/layout/SideNav';
 import HeroSection from './components/sections/Hero';
+import Education from './components/sections/Education';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
             <main className="main-content">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/education" element={<div>Education Page Content</div>} />
+                <Route path="/education" element={<Education />} />
                 <Route path="/skills" element={<div>Skills Page Content</div>} />
                 <Route path="/projects" element={<div>Projects Page Content</div>} />
                 <Route path="/contact" element={<div>Contact Page Content</div>} />
