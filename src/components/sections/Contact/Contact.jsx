@@ -63,8 +63,8 @@ const Contact = () => {
           Have a question or want to work together? Feel free to reach out to me using the form below.
         </Typography>
 
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={8}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
+          <Box sx={{ flex: '1 1 auto', width: { xs: '100%', md: '66.666%' } }}>
             <Paper elevation={3} className="contact-form-container">
               {formSubmitted && (
                 <Box className="success-message">
@@ -81,9 +81,10 @@ const Contact = () => {
               >
                 {({ isSubmitting, touched, errors }) => (
                   <Form>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={6}>
-                        <Box className="form-field">
+                    <Box sx={{ mb: 3 }}>
+                      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 3, mb: 3 }}>
+                        {/* Name field */}
+                        <Box sx={{ flex: 1 }}>
                           <Field
                             as={TextField}
                             fullWidth
@@ -94,10 +95,9 @@ const Contact = () => {
                             helperText={touched.name && errors.name}
                           />
                         </Box>
-                      </Grid>
-                      
-                      <Grid item xs={12} sm={6}>
-                        <Box className="form-field">
+                        
+                        {/* Email field */}
+                        <Box sx={{ flex: 1 }}>
                           <Field
                             as={TextField}
                             fullWidth
@@ -108,86 +108,93 @@ const Contact = () => {
                             helperText={touched.email && errors.email}
                           />
                         </Box>
-                      </Grid>
+                      </Box>
                       
-                      <Grid item xs={12}>
-                        <Box className="form-field">
-                          <Field
-                            as={TextField}
-                            fullWidth
-                            label="Subject"
-                            name="subject"
-                            variant="outlined"
-                            error={touched.subject && Boolean(errors.subject)}
-                            helperText={touched.subject && errors.subject}
-                          />
-                        </Box>
-                      </Grid>
+                      {/* Subject field */}
+                      <Box sx={{ mb: 3 }}>
+                        <Field
+                          as={TextField}
+                          fullWidth
+                          label="Subject"
+                          name="subject"
+                          variant="outlined"
+                          error={touched.subject && Boolean(errors.subject)}
+                          helperText={touched.subject && errors.subject}
+                        />
+                      </Box>
                       
-                      <Grid item xs={12}>
-                        <Box className="form-field">
-                          <Field
-                            as={TextField}
-                            fullWidth
-                            label="Message"
-                            name="message"
-                            variant="outlined"
-                            multiline
-                            rows={4}
-                            error={touched.message && Boolean(errors.message)}
-                            helperText={touched.message && errors.message}
-                          />
-                        </Box>
-                      </Grid>
+                      {/* Message field (full width, its own row) */}
+                      <Box sx={{ mb: 3 }}>
+                        <Field
+                          as={TextField}
+                          fullWidth
+                          label="Message"
+                          name="message"
+                          variant="outlined"
+                          multiline
+                          rows={3}
+                          error={touched.message && Boolean(errors.message)}
+                          helperText={touched.message && errors.message}
+                          className="message-field"
+                        />
+                      </Box>
                       
-                      <Grid item xs={12}>
+                      {/* Submit button */}
+                      <Box>
                         <Button
                           type="submit"
                           variant="contained"
                           className="form-button"
                           disabled={isSubmitting}
+                          fullWidth
                         >
                           {isSubmitting ? 'Sending...' : 'Send Message'}
                         </Button>
-                      </Grid>
-                    </Grid>
+                      </Box>
+                    </Box>
                   </Form>
                 )}
               </Formik>
             </Paper>
-          </Grid>
+          </Box>
           
-          <Grid item xs={12} md={4}>
+          <Box sx={{ flex: '1 1 auto', width: { xs: '100%', md: '33.333%' } }}>
             <Paper elevation={3} className="contact-form-container">
-              <Typography variant="h5" gutterBottom>
+              <Typography variant="h5" className="contact-info-title" gutterBottom>
                 Contact Information
               </Typography>
               
               <Box mt={3}>
-                <Typography variant="body1" gutterBottom>
-                  <strong>Email:</strong>
-                </Typography>
-                <Typography variant="body2" paragraph>
-                  your.email@example.com
-                </Typography>
+                <Box className="contact-info-item">
+                  <Typography variant="body1" className="contact-info-label" gutterBottom>
+                    Email
+                  </Typography>
+                  <Typography variant="body2" className="contact-info-value" paragraph>
+                    contact@moizmoiz.com
+                  </Typography>
+                </Box>
                 
-                <Typography variant="body1" gutterBottom>
-                  <strong>Location:</strong>
-                </Typography>
-                <Typography variant="body2" paragraph>
-                  Lahore, Pakistan
-                </Typography>
+                <Box className="contact-info-item">
+                  <Typography variant="body1" className="contact-info-label" gutterBottom>
+                    Location
+                  </Typography>
+                  <Typography variant="body2" className="contact-info-value" paragraph>
+                    Lahore, Pakistan
+                  </Typography>
+                </Box>
                 
-                <Typography variant="body1" gutterBottom>
-                  <strong>Social:</strong>
-                </Typography>
-                <Typography variant="body2">
-                  Connect with me on LinkedIn, GitHub, or Twitter
-                </Typography>
+                <Box className="contact-info-item">
+                  <Typography variant="body1" className="contact-info-label" gutterBottom>
+                    Social
+                  </Typography>
+                  <Typography variant="body2" className="contact-info-value">
+                    <a href="https://www.linkedin.com/in/moizmoiz/" target="_blank" rel="noopener noreferrer">Connect with me on LinkedIn</a>
+                  </Typography>
+                </Box>
               </Box>
             </Paper>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );
