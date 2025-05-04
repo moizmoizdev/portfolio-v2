@@ -44,21 +44,29 @@ body {
   flex-direction: column;
 }
 
+/* App container with sidebar */
+.app-container {
+  display: flex;
+  flex: 1;
+}
+
 /* For fixed header spacing */
 .content-container {
   padding-top: 70px;
   background-color: var(--bg-primary);
+  flex: 1;
   min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Main content area */
 .main-content {
   flex: 1;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 40px 20px;
   width: 100%;
-  padding: 0;
-  overflow-x: hidden;
 }
 
 /* MUI container override for better spacing */
