@@ -4,6 +4,7 @@ import Header from './components/layout/Header';
 import SideNav from './components/layout/SideNav';
 import HeroSection from './components/sections/Hero';
 import Education from './components/sections/Education';
+import Contact from './components/sections/Contact';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
                 <Route path="/education" element={<Education />} />
                 <Route path="/skills" element={<div>Skills Page Content</div>} />
                 <Route path="/projects" element={<div>Projects Page Content</div>} />
-                <Route path="/contact" element={<div>Contact Page Content</div>} />
+                <Route path="/contact" element={<Contact />} />
               </Routes>
             </main>
           </div>
