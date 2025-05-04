@@ -70,6 +70,11 @@
   line-height: 1.6;
 }
 
+.timeline-achievements .MuiTypography-subtitle2 {
+  font-weight: 700 !important;
+  color: white !important;
+}
+
 .timeline-achievements ul {
   padding-left: 20px;
   margin-top: 8px;
