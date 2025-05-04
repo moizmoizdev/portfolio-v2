@@ -48,15 +48,30 @@ body {
 .content-container {
   padding-top: 70px;
   background-color: var(--bg-primary);
+  min-height: calc(100vh - 70px);
 }
 
 /* Main content area */
 .main-content {
   flex: 1;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 40px 20px;
   width: 100%;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* MUI container override for better spacing */
+.MuiContainer-root {
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+}
+
+@media (max-width: 600px) {
+  .MuiContainer-root {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
 }
 
 /* Section container */

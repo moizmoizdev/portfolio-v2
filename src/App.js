@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/layout/Header';
+import HeroSection from './components/sections/Hero';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <div className="content-container">
           <main className="main-content">
             <Routes>
-              <Route path="/" element={<div>Home Page Content</div>} />
+              <Route path="/" element={<Home />} />
               <Route path="/education" element={<div>Education Page Content</div>} />
               <Route path="/skills" element={<div>Skills Page Content</div>} />
               <Route path="/projects" element={<div>Projects Page Content</div>} />
@@ -22,5 +23,15 @@ function App() {
     </Router>
   );
 }
+
+// Home page component that includes the hero section
+const Home = () => {
+  return (
+    <div className="page-transition">
+      <HeroSection />
+      {/* Add more sections as needed */}
+    </div>
+  );
+};
 
 export default App;
