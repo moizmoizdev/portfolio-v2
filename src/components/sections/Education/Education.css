@@ -1,11 +1,11 @@
 .education-section {
-  padding: 60px 0;
+  padding: 80px 0;
   background-color: var(--bg-primary);
 }
 
 .section-title {
   color: var(--text-primary);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   position: relative;
   display: inline-block;
 }
@@ -15,49 +15,109 @@
   position: absolute;
   left: 0;
   bottom: -8px;
-  width: 50px;
+  width: 60px;
   height: 3px;
   background-color: var(--accent);
 }
 
-.education-list,
-.experience-list {
-  background-color: var(--bg-secondary);
+.section-subtitle {
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+
+.education-timeline {
+  margin-bottom: 60px;
+}
+
+.timeline-paper {
+  padding: 20px;
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary);
   border-radius: 8px;
-  padding: 0;
-  margin-bottom: 30px;
   border: 1px solid var(--border);
-  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.education-item,
-.experience-item {
-  padding: 20px !important;
+.timeline-paper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+  border-color: rgba(56, 189, 248, 0.3);
 }
 
-.item-title {
-  color: var(--accent);
+.timeline-header {
+  margin-bottom: 12px;
+}
+
+.timeline-title {
   font-weight: 600;
-  margin-bottom: 4px;
+  color: var(--accent);
 }
 
-.item-subtitle {
+.timeline-institution {
   color: var(--text-secondary);
   font-weight: 500;
-  margin-bottom: 4px;
 }
 
-.item-years {
+.timeline-date, .timeline-location {
   color: var(--text-tertiary);
   font-size: 0.9rem;
 }
 
+.timeline-description {
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.timeline-achievements ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.timeline-achievements li {
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+/* Timeline customization */
+.MuiTimelineDot-root {
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.MuiTimelineConnector-root {
+  background-color: rgba(56, 189, 248, 0.2);
+}
+
+/* Responsive styles */
 @media (max-width: 768px) {
   .education-section {
-    padding: 40px 0;
+    padding: 60px 0;
+  }
+  
+  .timeline-paper {
+    padding: 15px;
   }
   
   .section-title {
-    font-size: 1.75rem;
+    font-size: 2rem;
+  }
+  
+  .timeline-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .MuiTimeline-root {
+    padding: 0;
+  }
+  
+  .MuiTimelineOppositeContent-root {
+    flex: 0.2;
+  }
+  
+  .MuiTimelineContent-root {
+    flex: 0.8;
   }
 } 

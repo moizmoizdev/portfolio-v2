@@ -3,46 +3,91 @@ import {
   Container, 
   Typography, 
   Box,
-  List,
-  ListItem,
-  Divider
+  Paper
 } from '@mui/material';
+import {
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+  TimelineOppositeContent
+} from '@mui/lab';
+import SchoolIcon from '@mui/icons-material/School';
+import WorkIcon from '@mui/icons-material/Work';
+import StarIcon from '@mui/icons-material/Star';
 import './Education.css';
 
 const Education = () => {
-  const education = [
+  const educationHistory = [
     {
       id: 1,
-      degree: 'Bachelor of Computer Science',
-      school: 'University of Technology',
-      location: 'New York',
-      years: '2018 - 2022'
+      title: 'Bachelor in Computer Science',
+      institution: 'Information Technology University Lahore',
+      location: 'Lahore, Pakistan',
+      duration: '2023 - 2027',
+      description: 'Currently pursuing a degree in Computer Science with focus on software development.',
+      type: 'education',
+      achievements: [
+        'CGPA: 3.53/4.0',
+        'Been developeing interesting and innovative projects'    
+      ]
     },
     {
       id: 2,
-      degree: 'Advanced Web Development Certification',
-      school: 'Web Academy',
-      location: 'Online',
-      years: '2023'
+      title: 'Intermediate (Pre-Engineering)',
+      institution: 'F.G Public School',
+      location: 'Pakistan',
+      duration: '2021 - 2023',
+      description: 'Completed pre-engineering program with focus on mathematics and physics.',
+      type: 'education',
+      achievements: [
+        'Percentage: 83%',
+        'Participated in science competitions',
+        'Chief Prefect responsible for discipline and conduct of the school, managed dozens ns of prefects'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Matriculation (Science)',
+      institution: 'F.G Public School',
+      location: 'Pakistan',
+      duration: '2019 - 2021',
+      description: 'Completed matriculation with science subjects.',
+      type: 'education',
+      achievements: [
+        'Percentage: 87.5%',
+        'Top performer in Science subjects',
+      ]
     }
   ];
 
-  const experience = [
-    {
-      id: 1,
-      position: 'Full Stack Developer',
-      company: 'Tech Innovations Inc.',
-      location: 'Boston',
-      years: '2022 - 2023'
-    },
-    {
-      id: 2,
-      position: 'Senior Frontend Developer',
-      company: 'Digital Solutions Ltd.',
-      location: 'Remote',
-      years: '2023 - Present'
+  const getTimelineIcon = (type) => {
+    switch(type) {
+      case 'education':
+        return <SchoolIcon />;
+      case 'work':
+        return <WorkIcon />;
+      case 'certification':
+        return <StarIcon />;
+      default:
+        return <SchoolIcon />;
     }
-  ];
+  };
+
+  const getTimelineColor = (type) => {
+    switch(type) {
+      case 'education':
+        return 'primary';
+      case 'work':
+        return 'secondary';
+      case 'certification':
+        return 'success';
+      default:
+        return 'info';
+    }
+  };
 
   return (
     <Box className="education-section">
@@ -51,51 +96,59 @@ const Education = () => {
           Education
         </Typography>
         
-        <List className="education-list">
-          {education.map((item) => (
-            <React.Fragment key={item.id}>
-              <ListItem className="education-item">
-                <Box className="education-content">
-                  <Typography variant="h6" className="item-title">
-                    {item.degree}
-                  </Typography>
-                  <Typography variant="subtitle1" className="item-subtitle">
-                    {item.school} | {item.location}
-                  </Typography>
-                  <Typography variant="body2" className="item-years">
-                    {item.years}
-                  </Typography>
-                </Box>
-              </ListItem>
-              {item.id !== education.length && <Divider />}
-            </React.Fragment>
-          ))}
-        </List>
-
-        <Typography variant="h2" className="section-title" gutterBottom sx={{ mt: 5 }}>
-          Experience
+        <Typography variant="body1" className="section-subtitle" paragraph>
+          My academic journey in the field of Computer Science.
         </Typography>
-        
-        <List className="experience-list">
-          {experience.map((item) => (
-            <React.Fragment key={item.id}>
-              <ListItem className="experience-item">
-                <Box className="experience-content">
-                  <Typography variant="h6" className="item-title">
-                    {item.position}
+
+        <Timeline position="alternate" className="education-timeline">
+          {educationHistory.map((item) => (
+            <TimelineItem key={item.id}>
+              <TimelineOppositeContent color="text.secondary">
+                <Typography variant="body2" className="timeline-date">
+                  {item.duration}
+                </Typography>
+                <Typography variant="body2" className="timeline-location">
+                  {item.location}
+                </Typography>
+              </TimelineOppositeContent>
+              
+              <TimelineSeparator>
+                <TimelineDot color={getTimelineColor(item.type)}>
+                  {getTimelineIcon(item.type)}
+                </TimelineDot>
+                {item.id !== educationHistory.length && <TimelineConnector />}
+              </TimelineSeparator>
+              
+              <TimelineContent>
+                <Paper elevation={3} className="timeline-paper">
+                  <Box className="timeline-header">
+                    <Typography variant="h6" component="h3" className="timeline-title">
+                      {item.title}
+                    </Typography>
+                    <Typography variant="subtitle1" className="timeline-institution">
+                      {item.institution}
+                    </Typography>
+                  </Box>
+                  
+                  <Typography variant="body2" className="timeline-description">
+                    {item.description}
                   </Typography>
-                  <Typography variant="subtitle1" className="item-subtitle">
-                    {item.company} | {item.location}
-                  </Typography>
-                  <Typography variant="body2" className="item-years">
-                    {item.years}
-                  </Typography>
-                </Box>
-              </ListItem>
-              {item.id !== experience.length && <Divider />}
-            </React.Fragment>
+                  
+                  <Box className="timeline-achievements">
+                    <Typography variant="subtitle2" gutterBottom>
+                      Key Achievements:
+                    </Typography>
+                    <ul>
+                      {item.achievements.map((achievement, index) => (
+                        <li key={index}>{achievement}</li>
+                      ))}
+                    </ul>
+                  </Box>
+                </Paper>
+              </TimelineContent>
+            </TimelineItem>
           ))}
-        </List>
+        </Timeline>
       </Container>
     </Box>
   );
