@@ -16,9 +16,17 @@ const HeroSection = () => {
               <Typography variant="h1" className="name">
                 Abdul Moiz
               </Typography>
-              <Typography variant="body1" className="description">
+              <Typography 
+                variant="body1" 
+                className="description"
+                sx={{ 
+                  marginTop: '3.5rem', 
+                  marginBottom: '6rem' 
+                }}
+              >
                 I'm a passionate developer specializing in building modern web applications.
                 I love creating intuitive and performant user experiences with clean code.
+                
               </Typography>
               <Button 
                 variant="outlined" 
