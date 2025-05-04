@@ -31,6 +31,7 @@
   gap: 32px;
   margin-left: auto;
   align-items: center;
+  margin-right: 24px;
 }
 
 .nav-link {
@@ -66,7 +67,48 @@
   color: #e2e8f0 !important;
 }
 
-/* Menu styling *
+/* Profile styles */
+.profile-container {
+  margin-left: 16px;
+}
+
+.profile-button {
+  padding: 4px !important;
+}
+
+.profile-avatar {
+  border: 2px solid rgba(56, 189, 248, 0.5);
+  transition: all 0.2s ease;
+}
+
+.profile-avatar:hover {
+  border-color: #38bdf8;
+  transform: scale(1.05);
+}
+
+.profile-menu .MuiPaper-root {
+  background-color: #121212;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 8px;
+  color: white;
+  min-width: 180px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.profile-menu .MuiMenuItem-root {
+  font-size: 14px;
+  padding: 10px 16px;
+  color: rgba(255, 255, 255, 0.85);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.profile-menu .MuiMenuItem-root:hover {
+  background-color: rgba(56, 189, 248, 0.08);
+  color: #38bdf8;
+}
+
+/* Menu styling */
 .mobile-menu .MuiPaper-root {
   background-color: #121212;
   border-radius: 8px;
@@ -94,6 +136,10 @@
 @media (max-width: 900px) {
   .toolbar {
     padding: 8px 12px;
+  }
+  
+  .profile-container {
+    margin-left: 12px;
   }
 }
 

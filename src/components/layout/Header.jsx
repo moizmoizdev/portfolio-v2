@@ -8,7 +8,8 @@ import {
   Menu,
   MenuItem,
   useMediaQuery,
-  Container
+  Container,
+  Avatar
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
@@ -17,6 +18,7 @@ import './Header.css';
 const Header = () => {
   const isMobile = useMediaQuery('(max-width:900px)');
   const [mobileMenuAnchor, setMobileMenuAnchor] = useState(null);
+  const [profileMenuAnchor, setProfileMenuAnchor] = useState(null);
   
   const menuItems = [
     { name: "Home", path: "/" },
@@ -25,6 +27,14 @@ const Header = () => {
     { name: "Projects", path: "/projects" },
     { name: "Contact", path: "/contact" }
   ];
+
+  const handleProfileMenuOpen = (event) => {
+    setProfileMenuAnchor(event.currentTarget);
+  };
+
+  const handleProfileMenuClose = () => {
+    setProfileMenuAnchor(null);
+  };
   
   return (
     <AppBar position="fixed" elevation={0} className="header">
@@ -70,6 +80,28 @@ const Header = () => {
               ))}
             </Box>
           )}
+
+          {/* Profile Avatar with Dropdown */}
+          <Box className="profile-container">
+            <IconButton onClick={handleProfileMenuOpen} className="profile-button">
+              <Avatar 
+                src="/assets/avatar.png" 
+                alt="Profile" 
+                className="profile-avatar"
+                sx={{ width: 36, height: 36 }}
+              />
+            </IconButton>
+            <Menu
+              anchorEl={profileMenuAnchor}
+              open={Boolean(profileMenuAnchor)}
+              onClose={handleProfileMenuClose}
+              className="profile-menu"
+            >
+              <MenuItem onClick={handleProfileMenuClose}>Profile</MenuItem>
+              <MenuItem onClick={handleProfileMenuClose}>Settings</MenuItem>
+              <MenuItem onClick={handleProfileMenuClose}>Logout</MenuItem>
+            </Menu>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
