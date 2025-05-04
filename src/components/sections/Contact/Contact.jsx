@@ -8,39 +8,47 @@ import {
   Grid,
   Paper
 } from '@mui/material';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import './Contact.css';
 
+// Define validation schema using Yup
+const validationSchema = Yup.object({
+  name: Yup.string()
+    .required('Name is required')
+    .min(2, 'Name must be at least 2 characters'),
+  email: Yup.string()
+    .email('Invalid email address')
+    .required('Email is required'),
+  subject: Yup.string()
+    .required('Subject is required')
+    .min(5, 'Subject must be at least 5 characters'),
+  message: Yup.string()
+    .required('Message is required')
+    .min(10, 'Message must be at least 10 characters')
+});
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  // Initial form values
+  const initialValues = {
     name: '',
     email: '',
     subject: '',
     message: ''
-  });
-  
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value
-    }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
+  // Handle form submission
+  const handleSubmit = (values, { resetForm, setSubmitting }) => {
+    // In a real application, you would send the form data to a server
+    console.log('Form values:', values);
     
-    // Simulate submission
+    // Simulate server delay
     setTimeout(() => {
       setFormSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+      resetForm();
+      setSubmitting(false);
     }, 1000);
   };
 
@@ -59,80 +67,93 @@ const Contact = () => {
           <Grid item xs={12} md={8}>
             <Paper elevation={3} className="contact-form-container">
               {formSubmitted && (
-                <Box mb={3} p={2} bgcolor="rgba(76, 175, 80, 0.1)" borderRadius={1}>
-                  <Typography variant="body1" color="success.main">
+                <Box className="success-message">
+                  <Typography variant="body1">
                     Thank you for your message! I'll get back to you as soon as possible.
                   </Typography>
                 </Box>
               )}
               
-              <form onSubmit={handleSubmit}>
-                <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
-                    <Box className="form-field">
-                      <TextField
-                        fullWidth
-                        label="Name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        variant="outlined"
-                      />
-                    </Box>
-                  </Grid>
-                  
-                  <Grid item xs={12} sm={6}>
-                    <Box className="form-field">
-                      <TextField
-                        fullWidth
-                        label="Email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        variant="outlined"
-                      />
-                    </Box>
-                  </Grid>
-                  
-                  <Grid item xs={12}>
-                    <Box className="form-field">
-                      <TextField
-                        fullWidth
-                        label="Subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        variant="outlined"
-                      />
-                    </Box>
-                  </Grid>
-                  
-                  <Grid item xs={12}>
-                    <Box className="form-field">
-                      <TextField
-                        fullWidth
-                        label="Message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        variant="outlined"
-                        multiline
-                        rows={4}
-                      />
-                    </Box>
-                  </Grid>
-                  
-                  <Grid item xs={12}>
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      className="form-button"
-                    >
-                      Send Message
-                    </Button>
-                  </Grid>
-                </Grid>
-              </form>
+              <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+              >
+                {({ isSubmitting, touched, errors }) => (
+                  <Form>
+                    <Grid container spacing={3}>
+                      <Grid item xs={12} sm={6}>
+                        <Box className="form-field">
+                          <Field
+                            as={TextField}
+                            fullWidth
+                            label="Name"
+                            name="name"
+                            variant="outlined"
+                            error={touched.name && Boolean(errors.name)}
+                            helperText={touched.name && errors.name}
+                          />
+                        </Box>
+                      </Grid>
+                      
+                      <Grid item xs={12} sm={6}>
+                        <Box className="form-field">
+                          <Field
+                            as={TextField}
+                            fullWidth
+                            label="Email"
+                            name="email"
+                            variant="outlined"
+                            error={touched.email && Boolean(errors.email)}
+                            helperText={touched.email && errors.email}
+                          />
+                        </Box>
+                      </Grid>
+                      
+                      <Grid item xs={12}>
+                        <Box className="form-field">
+                          <Field
+                            as={TextField}
+                            fullWidth
+                            label="Subject"
+                            name="subject"
+                            variant="outlined"
+                            error={touched.subject && Boolean(errors.subject)}
+                            helperText={touched.subject && errors.subject}
+                          />
+                        </Box>
+                      </Grid>
+                      
+                      <Grid item xs={12}>
+                        <Box className="form-field">
+                          <Field
+                            as={TextField}
+                            fullWidth
+                            label="Message"
+                            name="message"
+                            variant="outlined"
+                            multiline
+                            rows={4}
+                            error={touched.message && Boolean(errors.message)}
+                            helperText={touched.message && errors.message}
+                          />
+                        </Box>
+                      </Grid>
+                      
+                      <Grid item xs={12}>
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          className="form-button"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? 'Sending...' : 'Send Message'}
+                        </Button>
+                      </Grid>
+                    </Grid>
+                  </Form>
+                )}
+              </Formik>
             </Paper>
           </Grid>
           
