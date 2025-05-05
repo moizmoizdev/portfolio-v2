@@ -3,33 +3,35 @@ import {
   Container, 
   Typography, 
   Box,
-  Paper
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  useMediaQuery,
+  Card,
+  CardContent,
+  List,
+  ListItem,
+  ListItemText
 } from '@mui/material';
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineOppositeContent
-} from '@mui/lab';
 import SchoolIcon from '@mui/icons-material/School';
-import WorkIcon from '@mui/icons-material/Work';
-import StarIcon from '@mui/icons-material/Star';
 import './Education.css';
 
-const Education = () => {
-  const educationHistory = [
+function Education() {
+  const isMobile = useMediaQuery('(max-width:600px)');
+  
+  const schoolInfo = [
     {
       id: 1,
       title: 'Bachelor in Computer Science',
-      institution: 'Information Technology University Lahore',
-      location: 'Lahore, Pakistan',
-      duration: '2023 - 2027',
-      description: 'Currently pursuing a degree in Computer Science with focus on software development.',
-      type: 'education',
-      achievements: [
+      school: 'Information Technology University Lahore',
+      place: 'Lahore, Pakistan',
+      years: '2023 - 2027',
+      details: 'Currently pursuing a degree in Computer Science with focus on software development.',
+      highlights: [
         'CGPA: 3.53/4.0',
         'Been developeing interesting and innovative projects'    
       ]
@@ -37,12 +39,11 @@ const Education = () => {
     {
       id: 2,
       title: 'Intermediate (Pre-Engineering)',
-      institution: 'F.G Public School',
-      location: 'Pakistan',
-      duration: '2021 - 2023',
-      description: 'Completed pre-engineering program with focus on mathematics and physics.',
-      type: 'education',
-      achievements: [
+      school: 'F.G Public School',
+      place: 'Pakistan',
+      years: '2021 - 2023',
+      details: 'Completed pre-engineering program with focus on mathematics and physics.',
+      highlights: [
         'Percentage: 83%',
         'Participated in science competitions',
         'Chief Prefect responsible for discipline and conduct of the school, managed dozens ns of prefects'
@@ -51,42 +52,97 @@ const Education = () => {
     {
       id: 3,
       title: 'Matriculation (Science)',
-      institution: 'F.G Public School',
-      location: 'Pakistan',
-      duration: '2019 - 2021',
-      description: 'Completed matriculation with science subjects.',
-      type: 'education',
-      achievements: [
+      school: 'F.G Public School',
+      place: 'Pakistan',
+      years: '2019 - 2021',
+      details: 'Completed matriculation with science subjects.',
+      highlights: [
         'Percentage: 87.5%',
         'Top performer in Science subjects',
       ]
     }
   ];
 
-  const getTimelineIcon = (type) => {
-    switch(type) {
-      case 'education':
-        return <SchoolIcon />;
-      case 'work':
-        return <WorkIcon />;
-      case 'certification':
-        return <StarIcon />;
-      default:
-        return <SchoolIcon />;
-    }
+  // Mobile view - using cards instead of a table
+  const renderMobileView = () => {
+    return (
+      <Box className="mobile-education">
+        {schoolInfo.map((item, index) => (
+          <Card key={item.id} className={index % 2 === 0 ? 'light-card' : 'dark-card'}>
+            <CardContent>
+              <Typography variant="h6" className="degree-cell">
+                {item.title}
+              </Typography>
+              
+              <Typography variant="body2" className="school-text">
+                {item.school} • {item.place}
+              </Typography>
+              
+              <Typography variant="body2" className="year-text">
+                {item.years}
+              </Typography>
+              
+              <Typography variant="body2" className="details-text">
+                {item.details}
+              </Typography>
+              
+              <Typography variant="subtitle2" className="highlights-title">
+                Highlights:
+              </Typography>
+              
+              <List dense className="highlights-list-mobile">
+                {item.highlights.map((point, idx) => (
+                  <ListItem key={idx} disableGutters>
+                    <ListItemText primary={point} />
+                  </ListItem>
+                ))}
+              </List>
+            </CardContent>
+          </Card>
+        ))}
+      </Box>
+    );
   };
 
-  const getTimelineColor = (type) => {
-    switch(type) {
-      case 'education':
-        return 'primary';
-      case 'work':
-        return 'secondary';
-      case 'certification':
-        return 'success';
-      default:
-        return 'info';
-    }
+  // Desktop view - using table
+  const renderTableView = () => {
+    return (
+      <TableContainer component={Paper} className="education-table">
+        <Table>
+          <TableHead>
+            <TableRow className="table-header">
+              <TableCell><SchoolIcon className="table-icon" /> Degree</TableCell>
+              <TableCell>School</TableCell>
+              <TableCell>Years</TableCell>
+              <TableCell>Location</TableCell>
+              <TableCell>About</TableCell>
+              <TableCell>Highlights</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {schoolInfo.map((item, index) => (
+              <TableRow 
+                key={item.id} 
+                className={index % 2 === 0 ? 'light-row' : 'dark-row'}
+              >
+                <TableCell className="degree-cell">{item.title}</TableCell>
+                <TableCell>{item.school}</TableCell>
+                <TableCell>{item.years}</TableCell>
+                <TableCell>{item.place}</TableCell>
+                <TableCell>{item.details}</TableCell>
+                <TableCell>
+                  <ul className="highlights-list">
+                    {item.highlights.map((point, idx) => (
+                      <li key={idx}>{point}</li>
+                    ))}
+                  </ul>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    );
   };
 
   return (
@@ -100,58 +156,10 @@ const Education = () => {
           My academic journey in the field of Computer Science.
         </Typography>
 
-        <Timeline position="alternate" className="education-timeline">
-          {educationHistory.map((item) => (
-            <TimelineItem key={item.id}>
-              <TimelineOppositeContent color="text.secondary">
-                <Typography variant="body2" className="timeline-date">
-                  {item.duration}
-                </Typography>
-                <Typography variant="body2" className="timeline-location">
-                  {item.location}
-                </Typography>
-              </TimelineOppositeContent>
-              
-              <TimelineSeparator>
-                <TimelineDot color={getTimelineColor(item.type)}>
-                  {getTimelineIcon(item.type)}
-                </TimelineDot>
-                {item.id !== educationHistory.length && <TimelineConnector />}
-              </TimelineSeparator>
-              
-              <TimelineContent>
-                <Paper elevation={3} className="timeline-paper">
-                  <Box className="timeline-header">
-                    <Typography variant="h6" component="h3" className="timeline-title">
-                      {item.title}
-                    </Typography>
-                    <Typography variant="subtitle1" className="timeline-institution">
-                      {item.institution}
-                    </Typography>
-                  </Box>
-                  
-                  <Typography variant="body2" className="timeline-description">
-                    {item.description}
-                  </Typography>
-                  
-                  <Box className="timeline-achievements">
-                    <Typography variant="subtitle2" gutterBottom>
-                      Key Achievements:
-                    </Typography>
-                    <ul>
-                      {item.achievements.map((achievement, index) => (
-                        <li key={index}>{achievement}</li>
-                      ))}
-                    </ul>
-                  </Box>
-                </Paper>
-              </TimelineContent>
-            </TimelineItem>
-          ))}
-        </Timeline>
+        {isMobile ? renderMobileView() : renderTableView()}
       </Container>
     </Box>
   );
-};
+}
 
 export default Education; 
