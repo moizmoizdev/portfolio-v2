@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with React and Material UI.
 
-![Portfolio Screenshot](./screenshots/screenshot1.png)
+![Portfolio Screenshot](./screenshots/screenshot1.jpg)
 
 
 
@@ -78,9 +78,21 @@ src/
 
 ## 📸 Screenshots
 
-| Desktop | Mobile |
-|---------|--------|
-| ![Desktop](./screenshots/desktop.png) | ![Mobile](./screenshots/mobile.png) |
+
+## Desktop View
+![Desktop Screenshot 1](screenshots/screenshot1.jpg)
+![Desktop Screenshot 2](screenshots/screenshot2.jpg)
+![Desktop Screenshot 3](screenshots/screenshot3.jpg)
+![Desktop Screenshot 4](screenshots/screenshot4.jpg)
+
+## Mobile View
+![Mobile Screenshot 1](screenshots/mobilescreenshot1.jpg)
+![Mobile Screenshot 2](screenshots/mobilescreenshot2.jpg)
+![Mobile Screenshot 3](screenshots/mobilescreenshot3.jpg)
+![Mobile Screenshot 4](screenshots/mobilescreenshot4.jpg)
+![Mobile Screenshot 5](screenshots/mobilescreenshot5.jpg)
+![Mobile Screenshot 6](screenshots/mobilescreenshot6.jpg)
+
 
 ## 🔧 Future Improvements
 
