@@ -4,8 +4,6 @@ A modern, responsive portfolio website built with React and Material UI.
 
 ![Portfolio Screenshot](./screenshots/screenshot1.jpg)
 
-
-
 ## ✨ Features
 
 - Responsive design that works on all devices (mobile, tablet, desktop)
@@ -35,22 +33,18 @@ A modern, responsive portfolio website built with React and Material UI.
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/react-portfolio-2025.git
-cd react-portfolio-2025
+git clone https://github.com/moizmoizdev/portfolio-v2.git
+cd portfolio-v2
 ```
 
 2. Install dependencies
 ```bash
 npm install
-# or
-yarn install
 ```
 
 3. Start the development server
 ```bash
 npm start
-# or
-yarn start
 ```
 
 4. Open your browser and visit `http://localhost:3000`
@@ -67,8 +61,8 @@ The portfolio is fully responsive with different layouts for:
 ```
 src/
 ├── components/
-│   ├── layout/        # Layout components (Header, Footer, etc.)
-│   ├── sections/      # Page sections (Hero, Projects, etc.)
+│   ├── layout/        # Layout components
+│   ├── sections/      # Page sections
 │   └── ui/            # Reusable UI components
 ├── context/           # React Context API
 ├── pages/             # Page components
@@ -77,7 +71,6 @@ src/
 ```
 
 ## 📸 Screenshots
-
 
 ## Desktop View
 ![Desktop Screenshot 1](screenshots/screenshot1.jpg)
@@ -92,7 +85,6 @@ src/
 ![Mobile Screenshot 4](screenshots/mobilescreenshot4.jpg)
 ![Mobile Screenshot 5](screenshots/mobilescreenshot5.jpg)
 ![Mobile Screenshot 6](screenshots/mobilescreenshot6.jpg)
-
 
 ## 🔧 Future Improvements
 

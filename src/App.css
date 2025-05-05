@@ -296,3 +296,12 @@ p {
     transform: rotate(360deg);
   }
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}

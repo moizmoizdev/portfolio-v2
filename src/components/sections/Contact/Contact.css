@@ -47,7 +47,6 @@
     width: 100%;
   }
   
-  /* Message field specific styling */
   .message-field {
     margin-top: 10px;
     width: 100%;
@@ -55,7 +54,6 @@
     clear: both;
   }
   
-  /* Message field larger size */
   .message-field textarea {
     min-height: 120px !important;
     width: 100% !important;
@@ -63,12 +61,10 @@
     line-height: 1.6 !important;
   }
   
-  /* Message container padding fix */
   .form-field .MuiOutlinedInput-root {
     width: 100%;
   }
   
-  /* Input field styling */
   .contact-form-container .MuiOutlinedInput-root {
     color: white;
     border-radius: 6px;
@@ -145,7 +141,6 @@
     font-weight: 500;
   }
   
-  /* Contact information styling */
   .contact-info-title {
     color: var(--accent);
     margin-bottom: 20px;
@@ -177,7 +172,6 @@
     text-decoration: underline;
   }
   
-  /* Responsive styles */
   @media (max-width: 768px) {
     .contact-section {
       padding: 60px 0;
@@ -247,7 +241,6 @@
   width: 100%;
 }
 
-/* Message field specific styling */
 .message-field {
   margin-top: 10px;
   width: 100%;
@@ -255,7 +248,6 @@
   clear: both;
 }
 
-/* Message field larger size */
 .message-field textarea {
   min-height: 120px !important;
   width: 100% !important;
@@ -263,12 +255,10 @@
   line-height: 1.6 !important;
 }
 
-/* Message container padding fix */
 .form-field .MuiOutlinedInput-root {
   width: 100%;
 }
 
-/* Input field styling */
 .contact-form-container .MuiOutlinedInput-root {
   color: white;
   border-radius: 6px;
@@ -345,7 +335,6 @@
   font-weight: 500;
 }
 
-/* Contact information styling */
 .contact-info-title {
   color: var(--accent);
   margin-bottom: 20px;
@@ -377,7 +366,6 @@
   text-decoration: underline;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .contact-section {
     padding: 60px 0;

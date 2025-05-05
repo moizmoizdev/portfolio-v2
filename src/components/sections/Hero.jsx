@@ -28,12 +28,11 @@ const HeroSection = () => {
                   marginBottom: '6rem' 
                 }}
               >
-                I'm a passionate developer specializing in building modern web applications.
-                I love creating intuitive and performant user experiences with clean code.
+                I'm a Computer Science student in my 4th semester, passionate about coding and problem-solving. I specialize in backend development and love building scalable systems.
                 
               </Typography>
               <Button 
-                variant="outlined" 
+               
                 color="primary" 
                 className="contact-button"
                 component={Link}
