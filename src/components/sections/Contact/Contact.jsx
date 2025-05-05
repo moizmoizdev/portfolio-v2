@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { usePageTitle } from '../../../context/PageTitleContext';
 import './Contact.css';
 
 // Define validation schema using Yup
@@ -30,6 +31,7 @@ const validationSchema = Yup.object({
 
 const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const { pageTitle } = usePageTitle();
 
   // Initial form values
   const initialValues = {
@@ -56,7 +58,7 @@ const Contact = () => {
     <Box className="contact-section">
       <Container maxWidth="lg">
         <Typography variant="h2" className="contact-title" gutterBottom>
-          Contact Me
+          {pageTitle}
         </Typography>
         
         <Typography variant="body1" className="contact-subtitle" paragraph>

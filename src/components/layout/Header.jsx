@@ -23,7 +23,6 @@ const Header = () => {
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "Education", path: "/education" },
-    { name: "Skills", path: "/skills" },
     { name: "Projects", path: "/projects" },
     { name: "Contact", path: "/contact" }
   ];
@@ -38,7 +37,7 @@ const Header = () => {
   
   return (
     <AppBar position="fixed" elevation={0} className="header">
-      <Container>
+      <Container maxWidth="lg" disableGutters={isMobile}>
         <Toolbar disableGutters className="toolbar">
           <Typography component="h1" variant="h6" className="logo">
             <Link to="/">Portfolio</Link>
@@ -49,8 +48,19 @@ const Header = () => {
               <IconButton
                 onClick={(e) => setMobileMenuAnchor(e.currentTarget)}
                 className="menu-button"
+                size="medium"
+                edge="start"
+                aria-label="menu"
               >
-                <MenuIcon />
+                <MenuIcon 
+                  sx={{
+                    display: 'block',
+                    '& path': {
+                      strokeWidth: 0.8,  // Makes lines more defined
+                      stroke: '#e2e8f0'  // Ensures lines have good contrast
+                    }
+                  }}
+                />
               </IconButton>
               
               <Menu
@@ -81,7 +91,6 @@ const Header = () => {
             </Box>
           )}
 
-          {/* Profile Avatar with Dropdown */}
           <Box className="profile-container">
             <IconButton onClick={handleProfileMenuOpen} className="profile-button">
               <Avatar 

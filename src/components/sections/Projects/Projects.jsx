@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Typography, Box, Paper } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
+import { usePageTitle } from '../../../context/PageTitleContext';
 import './Projects.css';
 
 const ProjectCard = ({ project }) => {
@@ -42,7 +43,8 @@ const ProjectCard = ({ project }) => {
 };
 
 const Projects = () => {
-  // Sample project data
+  const { pageTitle } = usePageTitle();
+  
   const projects = [
     {
       id: 1,
@@ -67,7 +69,7 @@ const Projects = () => {
     <Box className="projects-section">
       <Container maxWidth="lg">
         <Typography variant="h2" className="section-title" gutterBottom>
-          Projects
+          {pageTitle}
         </Typography>
         
         <Typography variant="body1" className="section-subtitle" paragraph>

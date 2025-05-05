@@ -18,10 +18,12 @@ import {
   ListItemText
 } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
+import { usePageTitle } from '../../../context/PageTitleContext';
 import './Education.css';
 
 function Education() {
   const isMobile = useMediaQuery('(max-width:600px)');
+  const { pageTitle } = usePageTitle();
   
   const schoolInfo = [
     {
@@ -63,7 +65,6 @@ function Education() {
     }
   ];
 
-  // Mobile view - using cards instead of a table
   const renderMobileView = () => {
     return (
       <Box className="mobile-education">
@@ -104,7 +105,6 @@ function Education() {
     );
   };
 
-  // Desktop view - using table
   const renderTableView = () => {
     return (
       <TableContainer component={Paper} className="education-table">
@@ -149,7 +149,7 @@ function Education() {
     <Box className="education-section">
       <Container maxWidth="lg">
         <Typography variant="h2" className="section-title" gutterBottom>
-          Education
+          {pageTitle}
         </Typography>
         
         <Typography variant="body1" className="section-subtitle" paragraph>

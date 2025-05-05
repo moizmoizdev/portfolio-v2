@@ -13,6 +13,7 @@ import {
   Tooltip
 } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
+import { usePageTitle } from '../../../context/PageTitleContext';
 
 // Icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -30,6 +31,7 @@ const SideNav = () => {
   const isMobile = useMediaQuery('(max-width:900px)');
   const [open, setOpen] = useState(!isMobile);
   const location = useLocation();
+  const { pageTitle } = usePageTitle();
 
   const menuItems = [
     { name: "Home", path: "/", icon: <HomeIcon /> },

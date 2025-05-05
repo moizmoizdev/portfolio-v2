@@ -65,6 +65,13 @@
 
 .menu-button {
   color: #e2e8f0 !important;
+  padding: 8px !important;
+}
+
+.menu-button .MuiSvgIcon-root {
+  font-size: 28px !important;
+  width: 28px !important;
+  height: 28px !important;
 }
 
 /* Profile styles */
@@ -136,10 +143,37 @@
 @media (max-width: 900px) {
   .toolbar {
     padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .logo {
+    flex: 1;
   }
   
   .profile-container {
     margin-left: 12px;
+    flex: 0 0 auto;
+  }
+  
+  .menu-button {
+    margin-left: auto !important;
+    margin-right: 12px !important;
+    flex: 0 0 auto;
+  }
+  
+  .menu-button .MuiSvgIcon-root {
+    font-size: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-button {
+    padding: 6px !important;
   }
 }
 

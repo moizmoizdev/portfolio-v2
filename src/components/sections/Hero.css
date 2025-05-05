@@ -167,6 +167,12 @@
     justify-content: center !important;
     margin-top: 3rem !important;
     padding-left: 0 !important;
+    display: flex !important;
+    width: 100% !important;
+  }
+  
+  .profile-image {
+    margin: 0 auto !important;
   }
 }
 
@@ -186,5 +192,14 @@
   .profile-image {
     width: 240px !important;
     height: 240px !important;
+    margin: 0 auto !important;
+  }
+  
+  .image-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    width: 100% !important;
   }
 } 
