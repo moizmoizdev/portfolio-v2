@@ -4,6 +4,8 @@ import Header from './components/layout/Header';
 import SideNav from './components/layout/SideNav';
 import HeroSection from './components/sections/Hero';
 import Education from './components/sections/Education';
+import Projects from './components/sections/Projects/Projects';
+import Contact from './components/sections/Contact/Contact';
 
 function App() {
   return (
@@ -18,8 +20,8 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/education" element={<Education />} />
                 <Route path="/skills" element={<div>Skills Page Content</div>} />
-                <Route path="/projects" element={<div>Projects Page Content</div>} />
-                <Route path="/contact" element={<div>Contact Page Content</div>} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
               </Routes>
             </main>
           </div>
