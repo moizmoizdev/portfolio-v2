@@ -6,6 +6,7 @@ import HeroSection from './components/sections/Hero';
 import Education from './components/sections/Education';
 import Projects from './components/sections/Projects/Projects';
 import Contact from './components/sections/Contact/Contact';
+import Footer from './components/layout/Footer';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             </main>
           </div>
         </div>
+        <Footer />
       </div>
     </Router>
   );
