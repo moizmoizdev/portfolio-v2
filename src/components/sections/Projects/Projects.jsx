@@ -46,30 +46,20 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Website',
-      description: 'A fully responsive e-commerce website with product filtering, cart functionality, and checkout process.',
-      image: 'https://via.placeholder.com/400x200',
-      technologies: ['React', 'Node.js', 'MongoDB'],
-      github: 'https://github.com',
-      demo: 'https://example.com'
+      title: 'CelestialChain',
+      description: 'A blockchain implementation with consensus protocol and transaction processing capabilities.',
+      image: '/assets/blockchain.jpg',
+      technologies: ['OpenSSL', 'Boost', 'levelDB'],
+      github: 'https://github.com/moizmoizdev/CelestialChain'
     },
     {
       id: 2,
-      title: 'Weather App',
-      description: 'A weather application that fetches real-time weather data based on user location or search input.',
-      image: 'https://via.placeholder.com/400x200',
-      technologies: ['JavaScript', 'API', 'CSS'],
-      github: 'https://github.com',
-      demo: 'https://example.com'
-    },
-    {
-      id: 3,
       title: 'Portfolio Website',
       description: 'A personal portfolio website showcasing my projects and skills with a modern UI design.',
-      image: 'https://via.placeholder.com/400x200',
-      technologies: ['React', 'Material UI', 'CSS'],
-      github: 'https://github.com',
-      demo: 'https://example.com'
+      image: '/assets/portfolio.jpg',
+      technologies: ['React', 'Material UI', 'CSS', 'Javascript'],
+      github: 'https://github.com/moizmoizdev/portfolio-v2',
+      demo: 'https://moizmoiz.com'
     }
   ];
 
