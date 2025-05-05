@@ -10,9 +10,7 @@ const Footer = () => {
       <Container maxWidth="lg">
         <div className="footer-content">
           <Typography variant="body2" className="footer-copyright">
-            © {currentYear} Abdul Moiz. All rights reserved.
-            <Box component="span" mx={1}>|</Box>
-            Designed with <Box component="span" sx={{ color: 'var(--accent)' }}>❤️</Box> by{' '}
+            © {currentYear} Abdul Moiz. All rights reserved. Designed with ❤️ by {' '}
             <a href="https://github.com/moizmoizdev" target="_blank" rel="noopener noreferrer">
               MoizMoiz
             </a>
